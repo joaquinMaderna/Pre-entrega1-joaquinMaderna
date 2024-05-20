@@ -7,7 +7,7 @@ const products = [
         almacenamiento: "128GB",
         color: "Negro",
         stock: 50,
-        categoria: "Teléfono",
+        categoria: "telefono",
         imagen: "https://www.macstation.com.ar/img/productos/3211-3119-2.jpg"
     },
     {
@@ -18,7 +18,7 @@ const products = [
         almacenamiento: "256GB",
         color: "Blanco",
         stock: 30,
-        categoria: "Teléfono",
+        categoria: "telefono",
         imagen: "https://www.macstation.com.ar/img/productos/3211-3119-2.jpg"
     },
     {
@@ -29,7 +29,7 @@ const products = [
         almacenamiento: "128GB",
         color: "Azul",
         stock: 0,
-        categoria: "Teléfono",
+        categoria: "telefono",
         imagen: "https://www.macstation.com.ar/img/productos/3211-3119-2.jpg"
     },
     {
@@ -40,7 +40,7 @@ const products = [
         almacenamiento: "256GB",
         color: "Rojo",
         stock: 20,
-        categoria: "Teléfono",
+        categoria: "telefono",
         imagen: "https://www.macstation.com.ar/img/productos/3211-3119-2.jpg"
     },
     {
@@ -51,7 +51,7 @@ const products = [
         almacenamiento: "512GB",
         color: "Verde",
         stock: 15,
-        categoria: "Teléfono",
+        categoria: "telefono",
         imagen: "https://www.macstation.com.ar/img/productos/3211-3119-2.jpg"
     },
     {
@@ -64,7 +64,7 @@ const products = [
         procesador: "Apple M1 Pro",
         color: "Gris Espacial",
         stock: 25,
-        categoria: "Notebook",
+        categoria: "notebook",
         imagen: "https://www.macstation.com.ar/img/productos/3211-3119-2.jpg"
     },
     {
@@ -77,7 +77,7 @@ const products = [
         procesador: "Intel Core i7",
         color: "Plata",
         stock: 40,
-        categoria: "Notebook",
+        categoria: "notebook",
         imagen: "https://www.macstation.com.ar/img/productos/3211-3119-2.jpg"
     },
     {
@@ -90,7 +90,7 @@ const products = [
         procesador: "Intel Core i7",
         color: "Negro",
         stock: 15,
-        categoria: "Notebook",
+        categoria: "notebook",
         imagen: "https://www.macstation.com.ar/img/productos/3211-3119-2.jpg"
     },
     {
@@ -103,7 +103,7 @@ const products = [
         procesador: "Intel Core i7",
         color: "Negro",
         stock: 30,
-        categoria: "Notebook",
+        categoria: "notebook",
         imagen: "https://www.macstation.com.ar/img/productos/3211-3119-2.jpg"
     },
     {
@@ -116,7 +116,7 @@ const products = [
         procesador: "AMD Ryzen 7",
         color: "Azul",
         stock: 20,
-        categoria: "Notebook",
+        categoria: "notebook",
         imagen: "https://www.macstation.com.ar/img/productos/3211-3119-2.jpg"
     }
 ];
@@ -132,9 +132,21 @@ export const getProducts = () => {
 export const getProductById = (id) => {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
-            resolve(products.find(product => product.id === id));
+            const producto = products.find(product => product.id === id);
+            resolve(producto);
         }, 2000);
     });
 }
 
 
+
+export const getProductsByCategory = (categoria) => {
+    categoria = categoria.toLowerCase();
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            const productos = products.filter(product => product.categoria === categoria);
+            console.log(productos);
+            resolve(productos);
+        }, 2000);
+    });
+}
