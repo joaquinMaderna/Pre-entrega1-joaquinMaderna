@@ -1,15 +1,16 @@
-import Navbar from "./components/Navbar"
+import { Navbar1 } from "./components/Navbar1"
 import { Route, Routes } from "react-router-dom"
 import { ItemListContainer } from "./components/ItemListContainer"
+import { ItemDetailContainer } from "./components/ItemDetailContainer"
 export default function App() {
   return (
     <>
-      <Navbar />
+      <Navbar1 />
       <Routes>
-        <Route path="/" element={<ItemListContainer />} />
-        <Route path="/category/:categoryId" element={<ItemListContainer />} />
-        <Route path="/item/:itemId" element={<ItemListContainer />} />
+        <Route exact path="/" element={<ItemListContainer />} />
+        <Route exact path="/category/:categoryId" element={<ItemListContainer />} />
+        <Route exact path="/product/:productId" element={<ItemDetailContainer />} />
       </Routes>
     </>
   )
-}
+} 
