@@ -7,6 +7,7 @@ export const ItemCategoryContainer = () => {
 
     const [products, setProducts] = useState([])
 
+    
     const { categoriaNombre } = useParams()
 
 

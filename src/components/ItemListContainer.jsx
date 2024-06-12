@@ -1,16 +1,17 @@
 import { useEffect, useState } from "react"
-import { getProducts } from "../../asyncMock"
+import { getProducts } from "../config/firebase";
 import { ItemCard } from "./ItemCard"
 
 export const ItemListContainer = () => {
 
     const [products, setProducts] = useState([])
 
+
     useEffect(() => {
         getProducts().then(products => {
             setProducts(products)
-        }) 
-    },[])
+        })
+    }, [])
 
     return (
         <>  
