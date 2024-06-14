@@ -11,8 +11,8 @@ export const ItemDetailContainer = () => {
     console.log(idProd);
 
     useEffect(() => {
-        getProductById(id).then(products => {
-            setProd(products)
+        getProductById(idProd).then(prod => {
+            setProd(prod)
         })
     }, [idProd])
 

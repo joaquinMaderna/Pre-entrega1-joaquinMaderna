@@ -1,17 +1,25 @@
 import { useEffect, useState } from "react"
 import { getProducts } from "../config/firebase";
 import { ItemCard } from "./ItemCard"
+import { useParams } from "react-router-dom"
 
 export const ItemListContainer = () => {
 
     const [products, setProducts] = useState([])
 
+    const { categoriaNombre } = useParams()
 
     useEffect(() => {
-        getProducts().then(products => {
-            setProducts(products)
-        })
-    }, [])
+        if (categoriaNombre) {
+            getProducts().then(products => {
+                setProducts(products.filter(product => product.category === categoriaNombre))
+            })
+        } else {
+            getProducts().then(products => {
+                setProducts(products)
+            })
+        }
+    }, [categoriaNombre])
 
     return (
         <>  

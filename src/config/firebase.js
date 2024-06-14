@@ -35,7 +35,12 @@ export async function getProducts() {
 
 export async function getProductById(id) {
   const products = await getProducts();
-  console.log(products);
   const response = products.find(product => product.id === id);
-  console.log(response);
+  return response
+}
+
+export async function getProductsByCategory(categoria) {
+  const products = await getProducts();
+  const response = products.filter(product => product.categoria === categoria);
+  return response
 }

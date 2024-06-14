@@ -1,6 +1,5 @@
 
 export const ItemDetail = ({ prodDet }) => {
-    console.log(prodDet);
     return (
         <div className="min-h-screen bg-gray-100 flex items-center justify-center antialiased " >
             <div className="rounded-xl shadow-xl bg-gray-800 px-12 py-10" >
